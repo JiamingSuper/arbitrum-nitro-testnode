@@ -5,7 +5,7 @@ import * as crypto from "crypto";
 import { runStress } from "./stress";
 const path = require("path");
 
-const specialAccounts = 6;
+const specialAccounts = 12;
 
 async function writeAccounts() {
   for (let i = 0; i < specialAccounts; i++) {
@@ -15,6 +15,7 @@ async function writeAccounts() {
       path.join(consts.l1keystore, wallet.address + ".key"),
       walletJSON
     );
+    console.log(i + ":" + wallet.address);
   }
 }
 
@@ -46,6 +47,24 @@ export function namedAccount(
   }
   if (name == "l2owner") {
     return specialAccount(5);
+  }
+  if (name == "funnel1") {
+    return specialAccount(6);
+  }
+  if (name == "sequencer1") {
+    return specialAccount(7);
+  }
+  if (name == "validator1") {
+    return specialAccount(8);
+  }
+  if (name == "l3owner1") {
+    return specialAccount(9);
+  }
+  if (name == "l3sequencer1") {
+    return specialAccount(10);
+  }
+  if (name == "l2owner1") {
+    return specialAccount(11);
   }
   if (name.startsWith("user_")) {
     return new ethers.Wallet(
