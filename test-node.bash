@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# 0:0x3f1Eae7D46d88F08fc2F8ed27FCb2AB183EB2d0E
+# 1:0xe2148eE53c0755215Df69b2616E552154EdC584f
+# 2:0x6A568afe0f82d34759347bb36F14A6bB171d2CBe
+# 3:0x863c904166E801527125D8672442D736194A3362
+# 4:0x3E6134aAD4C4d422FF2A4391Dc315c4DDf98D1a5
+# 5:0x5E1497dD1f08C87b2d8FE23e9AAB6c1De833D927
+# 6:0x46225F4cee2b4A1d506C7f894bb3dAeB21BF1596
+# 7:0x19ED240ddd4DDEeDdF2B77aA279F258eFC52f9b7
+# 8:0xaDef93B37f314ae8c8d711C76dB2C17587738DB8
+# 9:0xcEeD7eFb59a5De0B885Af9b5D416bc5E9725C8e0
+# 10:0xb911217f08f23e49F02151354c91c3f213C040CE
+# 11:0x0831A8b22377779D19d014810754ceD6fC6b7dA0
+
 set -e
 
 NITRO_NODE_VERSION=offchainlabs/nitro-node:v2.2.2-8f33fea-dev
@@ -328,6 +341,9 @@ if $force_init; then
     docker compose run scripts send-l1 --ethamount 1000 --to validator --wait
     docker compose run scripts send-l1 --ethamount 1000 --to sequencer --wait
     docker compose run scripts send-l1 --ethamount 1000 --to l2owner --wait
+    docker compose run scripts send-l1 --ethamount 1000 --to validator1 --wait
+    docker compose run scripts send-l1 --ethamount 1000 --to sequencer1 --wait
+    docker compose run scripts send-l1 --ethamount 1000 --to l2owner1 --wait
 
     echo == create l1 traffic
     docker compose run scripts send-l1 --ethamount 1000 --to user_l1user --wait
